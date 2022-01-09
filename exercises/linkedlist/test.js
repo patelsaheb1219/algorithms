@@ -97,7 +97,7 @@ describe('RemoveFirst', () => {
   });
 });
 
-describe.skip('RemoveLast', () => {
+describe('RemoveLast', () => {
   test('RemoveLast removes the last node when list is empty', () => {
     const l = new List();
     expect(() => {
@@ -131,6 +131,18 @@ describe.skip('RemoveLast', () => {
     l.removeLast();
 
     expect(l.size()).toEqual(2);
+    expect(l.getLast().data).toEqual('b');
+  });
+
+  test('RemoveLast removes the last node when list is length 4', () => {
+    const l = new List();
+    l.insertFirst('c');
+    l.insertFirst('b');
+    l.insertFirst('d');
+    l.insertFirst('a');
+    l.removeLast();
+
+    expect(l.size()).toEqual(3);
     expect(l.getLast().data).toEqual('b');
   });
 });
